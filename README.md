@@ -1,55 +1,19 @@
 # Database Design
 
+![](https://cdn.educba.com/academy/wp-content/uploads/2019/11/Relational-Database.png)
+
 ## Objectives
 
 - Design a relational database
 - Associate models/tables correctly
-- Identify Differences between horizontal vs vertical scaling
 
-## Introduction
+## Overview
 
-Database design is one of the most important steps in building a robust backend service. How you store and associate data plays a big part in how well your application scales. With relational databases it's better to have more tables than not enough.
-
-## Horizontal vs Vertical Scaling
-
-Horizontal vs Vertical is a common term you'll hear in the industry, it's commonly used to describe how well a database can grow or scale.
-
-### Horizontal Scaling
-
-Relational databases like the following:
-
-- Postgresql
-- MySql
-- SqLite
-- MariaDB
-- Amazon Aurora
-
-scale better horizontally. This means that we can add more columns with out major performance hits. However, once the number of records grow, that's when we start to experience longer query times. For example a `SELECT` statement has a Big O of `O(n)` meaning that as the number of records grow, our query time increases accordingly. The Big O is not directly affected by the number of columns a table has.
-
-**Example**:
-
-Performaing a `SELECT` statement on a database with 1000 records would in theory have a Big O of `O(1000)`. The `SELECT` statement scans each row of data in our table until a match is found.
-
-### Vertical Scaling
-
-NoSQL databases like the following:
-
-- MongoDB
-- Redis
-- Amazon DynamoDB
-- Cassandra
-
-scale better vertically,meaning that no matter how many records our `collection` contains the query time won't exponentially increase. A `find` statement for these databases would have a Big O of `O(1)` . Being that NoSQL databases are just a key-value store, in javascript terms... an `object`, the lookup time is always constant.
-
-Here's a graph to visually demonstrate this:
-
-![Graph](images/graph.png)
-
-**NOTE**: Vertical vs Horizontal is also used to describe how well a database can scale across multiple machines/servers. In this case NoSQL databases scale better horizontally, meaning that they're easier to spread accross multiple servers. Relational Databases however, do not scale well in this case due to the structured nature of the data.
+Database design is one of the most important steps in building a robust backend service. How you store and associate data plays a big part in how well your application scales. With relational databases it's better to have more tables than not enough. Relational databases operate on a column/row approach, sort of like a spreadsheet. We associate different records utilizing a `foreign key`, which can be any kind of unique identifier; typically an `id`.
 
 ## Relationship Design
 
-Let's say we want to create a database to store information about our travel app. The functionality/tables we would have is as follows:
+Let's say we want to create a database to store information about a travel app. The functionality/tables we would have is as follows:
 
 - User/Booking
 - Locations
@@ -66,17 +30,21 @@ Here's an `ERD` to demonstrate this:
 
 ![ERD](images/erd.png)
 
-**[Here's an ERD cheatsheet](https://drive.google.com/file/d/0B_spkK3eZiHmZTZhczVTaVZxUFU/view)**
+If you need help remembering the symbols used in an erd, here is a cheatsheet: **[ERD cheatsheet](https://drive.google.com/file/d/0B_spkK3eZiHmZTZhczVTaVZxUFU/view)**
 
-### 5min (Discussion)
+## Analyzing The ERD
 
-Let's discuss these associations and go over what does and doesn't make sense and what changes you would make.
+Looking at this diagram, here are few questions to ask:
+
+- Are there any relationships that don't make sense?
+- What are some optimizations we can do to this erd?
+- What additional functionality could you add to the erd?
 
 ### A Few Side Notes
 
 - Don't be afraid of creating more tables
 - Add as many columns as you think is necessary
-- Through tables are your friend!
+- Through/join tables are your friend, take advantage of them!
 
 ## You Do
 
@@ -90,3 +58,13 @@ With your group build out an ERD for an ecommerce website, it needs to have the 
 - Cart
 
 Feel free to add more functionality! Be ready to showcase and explain your design decisions!
+
+## Recap
+
+In this lesson, we discussed and implemented an erd to build relationships between different tables in a database.
+By understanding how relationships work in a database, we're able to build a visual aid to help us have a plan of action while building a database for our application.
+
+## Resources
+
+- [Database Relationships By IBM](https://www.ibm.com/support/knowledgecenter/SSANHD_7.6.0/com.ibm.mbs.doc/configur/c_db_relationships.html)
+- [How To Design A Great ERD](https://creately.com/blog/diagrams/er-diagrams-tutorial/)

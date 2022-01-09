@@ -50,10 +50,13 @@ Looking at this diagram, here are few questions to ask:
 
 With your group build out an ERD for an ecommerce website, it needs to have the following features for MVP:
 
+- At least one 1-to-1 and at least one 1-to-many relationship
+- At least one parent table with two children
+- At least one table that both has its own parent and its own child table
+
 - Product
 - Reviews
 - Product Category
-- Colors
 - User
 - Cart
 

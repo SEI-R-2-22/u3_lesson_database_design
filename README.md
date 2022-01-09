@@ -48,7 +48,7 @@ Looking at this diagram, here are few questions to ask:
 
 ## You Do
 
-With your group build out an ERD for an ecommerce website, it needs to have the following features for MVP:
+ Build out an ERD for an ecommerce website, it needs to have the following features for MVP:
 
 - At least one 1-to-1 and at least one 1-to-many relationship
 - At least one parent table with two children
